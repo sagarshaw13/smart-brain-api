@@ -24,10 +24,11 @@ app.use(bodyParser.json());
 app.use(cors());
 
 app.get('/', (req, res) => {
-  db.select('*').from('users')
-  .then(user => {
-    res.json(user)
-  })
+  // db.select('*').from('users')
+  // .then(user => {
+  //   res.json(user)
+  // })
+  res.json('Its working')
 })
 
 app.get('/profile/:id', (req, res) => {profile.handleProfileGET(req, res, db)})
