@@ -23,6 +23,12 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
+app.get('/', (req, res) => {
+  db.select('*').from('users')
+  .then(user => {
+    res.json(user)
+  })
+})
 
 app.get('/profile/:id', (req, res) => {profile.handleProfileGET(req, res, db)})
 
@@ -34,7 +40,7 @@ app.put('/image', (req, res) => {image.handleImage(req, res, db)})
 
 app.post('/imageURL',(req, res) => {image.hangleImageApi(req, res)})
 
-app.listen(process.env.PORT, ()=>{
+app.listen(process.env.PORT || 3000, ()=>{
     console.log(`app is running on port ${process.env.PORT}`);
 });
 
