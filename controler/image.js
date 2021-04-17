@@ -1,7 +1,7 @@
 const Clarifai = require('clarifai');
 
 const app = new Clarifai.App({
-    apiKey: 'b9913bce4244440db7e6d79cd15f8cd8' 
+    apiKey: process.env.KEY_CLARIFAI 
    });
 
 const hangleImageApi = (req, res) => {
