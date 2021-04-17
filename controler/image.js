@@ -7,7 +7,7 @@ const app = new Clarifai.App({
 const hangleImageApi = (req, res) => {
     app.models.predict(Clarifai.FACE_DETECT_MODEL, req.body.input)
     .then(data => res.json(data))
-    .catch(err => res.json('Unable to detect the face'))
+    .catch(console.log)
 }
 
 
